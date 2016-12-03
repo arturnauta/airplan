@@ -1,0 +1,2 @@
+class FlightItinerary < ApplicationRecord
+end

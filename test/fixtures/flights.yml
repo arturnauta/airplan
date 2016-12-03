@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  origin_airport_id: MyString
+  destination_airport_id: MyString
+  periodicity_time: 2016-11-15 18:46:27
+  avg_time: 1
+  airline_id: MyString
+
+two:
+  origin_airport_id: MyString
+  destination_airport_id: MyString
+  periodicity_time: 2016-11-15 18:46:27
+  avg_time: 1
+  airline_id: MyString

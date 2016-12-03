@@ -1,0 +1,28 @@
+<div class="container">
+  <h2 class="text-center"> CITY </h2>
+
+    <article>
+      <table class="table table-bordered table-responsive">
+        <thead>
+          <tr>
+            <th>City</th>
+            <th>Country</th>
+            <th>Time Zone</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><%= @city.name %></th>
+            <th><%= @city.country_name %></th>
+            <th><%= @city.time_zone %></th>
+            <th><a href="<%= edit_city_path(@city.id) %>" class="btn btn-warning" >Edit</a></th>
+            <th><a href="<%= city_path(@city.id) %>" data-method="delete" class="btn btn-danger" >Delete</a></th>
+          </tr>
+        </tbody>
+      </table>
+      <a class="new-city btn btn-default" href="<%= new_city_path %>">New City</a>
+      <a href="<%= cities_path %>" class="btn btn-default">View All Cities</a>
+    </article>
+</div>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flights BOOKING</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <a class="navbar-brand" href="<%= root_path %>">FLIGHTS RESERVATIONS <% current_user ? "| #{current_user.email}" : '' %></a>
+        <span><%= user_signed_in? ? current_user.email : ''  %>
+        <ul class="nav navbar-nav navbar-right">
+          <% if !current_user %>
+            <li><a href="<%= new_user_session_path %>">LOG IN</a></li>
+            <li><a href="<%= new_user_registration_path %>">SIGN UP</a></li>
+          <% else %>
+            <li><a href="<%= destroy_user_session_path %>" data-method="delete">LOG OUT</a></li>
+          <% end %>
+
+        </ul>
+       </div>
+    </nav>
+    <% if flash[:success] or flash[:error] or flash[:notice] %>
+    <span class="flash-message <%= flash[:success] ? 'success' : flash[:error] ? 'error' : flash[:notice] ? 'notice' : '' %>">
+      <%= flash[:success] ? flash[:success] : flash[:error] ? flash[:error] : flash[:notice] ? flash[:notice] : '' %>
+    </span>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

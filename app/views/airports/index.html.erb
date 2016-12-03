@@ -1,0 +1,34 @@
+<div class="container">
+  <h2 class="text-center"> AIRPOTS </h2>
+
+    <article>
+      <table class="table table-bordered table-responsive">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Time Zone</th>
+            <th>SHOW</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @airports.each do |a| %>
+          <tr>
+            <th><%= a.name %></th>
+            <th><%= a.city.name %></th>
+            <th><%= a.city.country_name %></th>
+            <th><%= a.city.time_zone %></th>
+            <th><a href="<%= airport_path(a.id) %>" data-method="get" class="btn btn-info" >Show</a></th>
+            <th><a href="<%= edit_airport_path(a.id) %>" class="btn btn-warning" >Edit</a></th>
+            <th><a href="<%= airport_path(a.id) %>" data-method="delete" class="btn btn-danger" >Delete</a></th>
+          </tr>
+          <% end if @airports.any? %>
+        </tbody>
+      </table>
+      <a class="new-airport btn btn-default" href="<%= new_airport_path %>">New Airport</a>
+    </article>
+
+</div>

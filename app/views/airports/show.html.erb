@@ -1,0 +1,29 @@
+<div class="container">
+  <h2 class="text-center"> AIRPORT </h2>
+
+    <article>
+      <table class="table table-bordered table-responsive">
+        <thead>
+          <tr>
+            <th>Airport</th>
+            <th>Country</th>
+            <th>Time Zone</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><%= @airport.name %></th>
+            <th><%= @airport.city.country_name %></th>
+            <th><%= @airport.city.time_zone %></th>
+            <th><a href="<%= edit_airport_path(@airport.id) %>" class="btn btn-warning" >Edit</a></th>
+            <th><a href="<%= airport_path(@airport.id) %>" data-method="delete" class="btn btn-danger" >Delete</a></th>
+          </tr>
+        </tbody>
+      </table>
+      <a class="new-airport btn btn-default" href="<%= new_airport_path %>">New airport</a>
+      <a href="<%= airports_path %>" class="btn btn-default">View All Airports</a>
+    </article>
+
+</div>

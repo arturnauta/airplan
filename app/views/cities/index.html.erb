@@ -1,0 +1,32 @@
+<div class="container">
+  <h2 class="text-center"> CITIES </h2>
+
+    <article>
+      <table class="table table-bordered table-responsive">
+        <thead>
+          <tr>
+            <th>City</th>
+            <th>Country</th>
+            <th>Time Zone</th>
+            <th>SHOW</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cities.each do |c| %>
+          <tr>
+            <th><%= c.name %></th>
+            <th><%= c.country_name %></th>
+            <th><%= c.time_zone %></th>
+            <th><a href="<%= city_path(c.id) %>" data-method="get" class="btn btn-info" >Show</a></th>
+            <th><a href="<%= edit_city_path(c.id) %>" class="btn btn-warning" >Edit</a></th>
+            <th><a href="<%= city_path(c.id) %>" data-method="delete" class="btn btn-danger" >Delete</a></th>
+          </tr>
+          <% end if @cities.any? %>
+        </tbody>
+      </table>
+      <a class="new-city btn btn-default" href="<%= new_city_path %>">New City</a>
+    </article>
+
+</div>
